@@ -43,7 +43,8 @@ function setup(path, project){
       "dependencies": {
             "dotenv": "^17.2.3",
             "express": "^5.2.1",
-            "mongoose": "^9.0.2"
+            "mongoose": "^9.0.2",
+            "morgan": "^1.10.0"
       }}  
     `)
   writeFileSync(`${path}/${project}/.gitignore`, `
@@ -156,6 +157,7 @@ rl.question('loc: ', (loc) => {
     rl.close();
   });
 });
+
 
 
 
