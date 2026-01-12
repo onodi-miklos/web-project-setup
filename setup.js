@@ -8,9 +8,7 @@ function setup(path, project){
   mkdirSync(`${path}/${project}/backend/dist`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/src`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/frontend`, { recursive: true })
-  mkdirSync(`${path}/${project}/backend/frontend/css`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/frontend/dist`, { recursive: true })
-  mkdirSync(`${path}/${project}/backend/frontend/html`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/frontend/src`, { recursive: true })
   
 
@@ -4466,15 +4464,14 @@ function setup(path, project){
   "include": ["src/**/*"]
 }
     `)
-  writeFileSync(`${path}/${project}/backend/frontend/css/style.css`, `
-    :root{}
+  writeFileSync(`${path}/${project}/backend/frontend/style.css`, `
+:root{}
 body{
-  background: #3b3b3f;
   margin: none;
   box-sizing: border-box
 }
     `)
-  writeFileSync(`${path}/${project}/backend/frontend/html/index.html`, `
+  writeFileSync(`${path}/${project}/backend/frontend/index.html`, `
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -4505,3 +4502,4 @@ rl.question('loc: ', (loc) => {
     rl.close();
   });
 });
+
