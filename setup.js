@@ -55,6 +55,7 @@ function setup(path, project){
     node_modules
     dist
     .env
+    log.txt
     `)
   writeFileSync(`${path}/${project}/backend/src/app.ts`, `
     const express = require('express')
@@ -170,6 +171,7 @@ rl.question('loc: ', (loc) => {
     rl.close();
   });
 });
+
 
 
 
