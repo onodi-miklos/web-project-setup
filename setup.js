@@ -7,6 +7,7 @@ function setup(path, project){
   mkdirSync(`${path}/${project}/backend/public`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/dist`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/src`, { recursive: true })
+  mkdirSync(`${path}/${project}/backend/routes`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/frontend`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/frontend/dist`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/frontend/src`, { recursive: true })
@@ -58,6 +59,8 @@ function setup(path, project){
   writeFileSync(`${path}/${project}/backend/src/app.ts`, `
     const express = require('express')
     const app = express()
+
+    app.use([express.json(), express.urlencoded({ extended: true }), express.static(path.join(__dirname, './public'))])
 
 
     app.listen(5000, () => {
@@ -167,6 +170,7 @@ rl.question('loc: ', (loc) => {
     rl.close();
   });
 });
+
 
 
 
