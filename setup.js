@@ -8,6 +8,7 @@ function setup(path, project){
   mkdirSync(`${path}/${project}/backend/dist`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/src`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/routes`, { recursive: true })
+  mkdirSync(`${path}/${project}/backend/controllers`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/frontend`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/frontend/dist`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/frontend/src`, { recursive: true })
@@ -171,6 +172,7 @@ rl.question('loc: ', (loc) => {
     rl.close();
   });
 });
+
 
 
 
