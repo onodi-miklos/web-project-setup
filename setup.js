@@ -39,6 +39,7 @@ function setup(path, project){
             "typescript": "^5.9.3"
       },
       "dependencies": {
+            "axios": "^1.13.4",
             "bcrypt": "^6.0.0",
             "bootstrap": "^5.3.8",
             "dotenv": "^17.2.3",
@@ -172,6 +173,7 @@ rl.question('loc: ', (loc) => {
     rl.close();
   });
 });
+
 
 
 
