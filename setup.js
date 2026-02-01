@@ -31,7 +31,7 @@ function setup(path, project) {
             "build:frontend": "tsc -p backend/frontend",
             "build": "npm run build:backend && npm run build:frontend",
             "start": "nodemon backend/dist/app.js",
-            "start:dev": "nodemon --watch 'backend/src' --exec \"npm run build:backend && node backend/dist/app.js\""
+            "start:dev":"npm run build && npm start"
       },
       "keywords": [],
       "author": "",
@@ -197,3 +197,4 @@ rl.question("loc: ", (loc) => {
     rl.close();
   });
 });
+
