@@ -16,6 +16,10 @@ function setup(path, project) {
   writeFileSync(
     `${path}/${project}/README.md`,
     `
+    install node: https://nodejs.org/en/download
+    node -v
+    npm -v
+    
     npm install
     `,
   );
@@ -197,4 +201,5 @@ rl.question("loc: ", (loc) => {
     rl.close();
   });
 });
+
 
