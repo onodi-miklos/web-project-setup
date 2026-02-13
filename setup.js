@@ -21,7 +21,7 @@ function setup(path, project) {
     npm -v
     
     npm install
-    `,
+    `
   );
   writeFileSync(
     `${path}/${project}/package.json`,
@@ -29,13 +29,12 @@ function setup(path, project) {
       "name": "empty",
       "version": "1.0.0",
       "description": "",
-      "main": "index.js",
+      "main": "app.js",
       "scripts": {
             "build:backend": "tsc -p backend",
             "build:frontend": "tsc -p backend/frontend",
             "build": "npm run build:backend && npm run build:frontend",
-            "start": "nodemon backend/dist/app.js",
-            "start:dev":"npm run build && npm start"
+            "start":"npm run build && nodemon dist/app.js"
       },
       "keywords": [],
       "author": "",
@@ -59,7 +58,7 @@ function setup(path, project) {
         "tailwind": "^4.0.0"
   }
 } 
-    `,
+    `
   );
 
   writeFileSync(
@@ -67,24 +66,11 @@ function setup(path, project) {
     `
     node_modules
     dist
-    .env
     log.txt
-    `,
+    `
   );
   writeFileSync(
-    `${path}/${project}/backend/src/app.ts`,
-    `
-    const express = require('express')
-    const path = require('path')
-    const app = express()
-
-    app.use([express.json(), express.urlencoded({ extended: true }), express.static(path.join(__dirname, './public'))])
-
-
-    app.listen(5000, () => {
-    console.log('Server listening on port 5000....')
-    })
-    `,
+    `${path}/${project}/backend/src/app.ts`,``
   );
   writeFileSync(
     `${path}/${project}/backend/tsconfig.json`,
@@ -121,7 +107,7 @@ function setup(path, project) {
   },
   "include": ["src/**/*"]
 }
-    `,
+    `
   );
   writeFileSync(
     `${path}/${project}/backend/frontend/tsconfig.json`,
@@ -155,7 +141,7 @@ function setup(path, project) {
   },
   "include": ["src/**/*"]
 }
-    `,
+    `
   );
   writeFileSync(
     `${path}/${project}/backend/frontend/style.css`,
@@ -165,7 +151,7 @@ body{
   margin: none;
   box-sizing: border-box
 }
-    `,
+    `
   );
   writeFileSync(
     `${path}/${project}/backend/frontend/index.html`,
@@ -177,13 +163,13 @@ body{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./dist/index.js" defer></script>
+    <script src="./dist/app.js" defer></script>
 </head>
 <body>
     
 </body>
 </html>
-    `,
+    `
   );
   writeFileSync(`${path}/${project}/backend/frontend/src/index.ts`, ``);
 }
