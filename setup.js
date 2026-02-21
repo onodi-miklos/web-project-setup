@@ -29,7 +29,7 @@ function setup(path, project) {
       "name": "empty",
       "version": "1.0.0",
       "description": "",
-      "main": "app.js",
+      "main": "backend/dist/app.js",
       "scripts": {
             "build:backend": "tsc -p backend",
             "build:frontend": "tsc -p backend/frontend",
@@ -187,5 +187,6 @@ rl.question("loc: ", (loc) => {
     rl.close();
   });
 });
+
 
 
