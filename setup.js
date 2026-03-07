@@ -94,10 +94,10 @@ function setup(path, project) {
     "declarationMap": true,
 
     "strict": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
 
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
@@ -188,6 +188,7 @@ rl.question("loc: ", (loc) => {
     rl.close();
   });
 });
+
 
 
 
