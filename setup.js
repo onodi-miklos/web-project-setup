@@ -52,7 +52,7 @@ function setup(path, project) {
         "dotenv": "^17.2.3",
         "express": "^5.2.1",
         "jsonwebtoken": "^9.0.3",
-        "mongodb": "^6.19.0"
+        "mongodb": "^6.19.0",
         "mongoose": "^9.0.2",
         "morgan": "^1.10.0",
         "mysql2": "^3.16.0",
@@ -188,6 +188,7 @@ rl.question("loc: ", (loc) => {
     rl.close();
   });
 });
+
 
 
 
