@@ -34,7 +34,7 @@ function setup(path, project) {
             "build:backend": "tsc -p backend",
             "build:frontend": "tsc -p backend/frontend",
             "build": "npm run build:backend && npm run build:frontend",
-            "start":"npm run build && nodemon dist/app.js"
+            "start":"npm run build && nodemon backend/dist/app.js"
       },
       "keywords": [],
       "author": "",
@@ -188,6 +188,7 @@ rl.question("loc: ", (loc) => {
     rl.close();
   });
 });
+
 
 
 
