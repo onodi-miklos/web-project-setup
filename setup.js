@@ -16,59 +16,64 @@ function setup(path, project) {
   writeFileSync(
     `${path}/${project}/README.md`,
     `
-    install node: https://nodejs.org/en/download
-    node -v
-    npm -v
+install git: https://git-scm.com/install/
+git -v
+
+git init
+make changes in .gitignore
+
+
+install node: https://nodejs.org/en/download
+node -v
+npm -v
     
-    npm install
-    `
+npm install`
   );
   writeFileSync(
     `${path}/${project}/package.json`,
-    `{
-      "name": "empty",
-      "version": "1.0.0",
-      "description": "",
-      "main": "backend/dist/app.js",
-      "scripts": {
-            "build:backend": "tsc -p backend",
-            "build:frontend": "tsc -p backend/frontend",
-            "build": "npm run build:backend && npm run build:frontend",
-            "start":"npm run build && nodemon backend/dist/app.js"
-      },
-      "keywords": [],
-      "author": "",
-      "license": "ISC",
-      "devDependencies": {
-            "@types/node": "^25.0.3",
-            "@types/express": "^4.17.21",
-            "nodemon": "^3.1.11",
-            "typescript": "^5.9.3"
-      },
-      "dependencies": {
-        "axios": "^1.13.4",
-        "bcrypt": "^6.0.0",
-        "bootstrap": "^5.3.8",
-        "dotenv": "^17.2.3",
-        "express": "^5.2.1",
-        "jsonwebtoken": "^9.0.3",
-        "mongodb": "^6.19.0",
-        "mongoose": "^9.0.2",
-        "morgan": "^1.10.0",
-        "mysql2": "^3.16.0",
-        "tailwind": "^4.0.0"
-  }
-} 
     `
+{
+  "name": "empty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "backend/dist/app.js",
+  "scripts": {
+    "build:backend": "tsc -p backend",
+    "build:frontend": "tsc -p backend/frontend",
+    "build": "npm run build:backend && npm run build:frontend",
+    "start":"npm run build && nodemon backend/dist/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "@types/express": "^4.17.21",
+    "nodemon": "^3.1.11",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "axios": "^1.13.4",
+    "bcrypt": "^6.0.0",
+    "bootstrap": "^5.3.8",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^6.19.0",
+    "mongoose": "^9.0.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.16.0",
+    "tailwind": "^4.0.0"
+  }
+}`
   );
 
   writeFileSync(
     `${path}/${project}/.gitignore`,
     `
-    node_modules
-    dist
-    log.txt
-    `
+node_modules
+dist
+log.txt`
   );
   writeFileSync(
     `${path}/${project}/backend/src/app.ts`,``
@@ -76,8 +81,8 @@ function setup(path, project) {
   writeFileSync(
     `${path}/${project}/backend/tsconfig.json`,
     `
-    // BACKEND
-    {
+// BACKEND
+{
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",
@@ -107,13 +112,12 @@ function setup(path, project) {
     "removeComments": true
   },
   "include": ["src/**/*"]
-}
-    `
+}`
   );
   writeFileSync(
     `${path}/${project}/backend/frontend/tsconfig.json`,
     `
-    // FRONTEND
+// FRONTEND
 {
   "compilerOptions": {
     "rootDir": "./src",
@@ -151,13 +155,12 @@ function setup(path, project) {
 body{
   margin: none;
   box-sizing: border-box
-}
-    `
+}`
   );
   writeFileSync(
     `${path}/${project}/backend/frontend/index.html`,
     `
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -169,8 +172,7 @@ body{
 <body>
     
 </body>
-</html>
-    `
+</html>`
   );
   writeFileSync(`${path}/${project}/backend/frontend/src/index.ts`, ``);
 }
@@ -188,8 +190,6 @@ rl.question("loc: ", (loc) => {
     rl.close();
   });
 });
-
-
 
 
 
