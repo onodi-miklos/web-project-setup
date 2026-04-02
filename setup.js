@@ -73,7 +73,8 @@ npm install`
     `
 node_modules
 dist
-log.txt`
+log.txt
+.env`
   );
   writeFileSync(
     `${path}/${project}/backend/src/app.ts`,``
