@@ -88,8 +88,8 @@ log.txt
     "rootDir": "./src",
     "outDir": "./dist",
 
-    "module": "CommonJS",
-    "moduleResolution": "Node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "target": "ES2020",
 
     "lib": ["ES2020"],
