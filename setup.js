@@ -13,22 +13,7 @@ function setup(path, project) {
   mkdirSync(`${path}/${project}/backend/frontend/dist`, { recursive: true });
   mkdirSync(`${path}/${project}/backend/frontend/src`, { recursive: true });
 
-  writeFileSync(
-    `${path}/${project}/README.md`,
-    `
-install git: https://git-scm.com/install/
-git -v
 
-git init
-make changes in .gitignore
-
-
-install node: https://nodejs.org/en/download
-node -v
-npm -v
-    
-npm install`
-  );
   writeFileSync(
     `${path}/${project}/package.json`,
     `
@@ -40,8 +25,10 @@ npm install`
   "scripts": {
     "build:backend": "tsc -p backend",
     "build:frontend": "tsc -p backend/frontend",
+    "watch:backend": "tsc --watch -p backend",
+    "watch:frontend": "tsc --watch -p backend/frontend",
     "build": "npm run build:backend && npm run build:frontend",
-    "start":"npm run build && nodemon backend/dist/app.js"
+    "start":"npm run build && node backend/dist/app.js"
   },
   "keywords": [],
   "author": "",
@@ -67,6 +54,23 @@ npm install`
   }
 }`
   );
+  writeFileSync(
+    `${path}/${project}/README.md`,
+    `
+install git: https://git-scm.com/install/
+git -v
+
+git init
+make changes in .gitignore
+
+
+install node: https://nodejs.org/en/download
+node -v
+npm -v
+    
+npm install`
+  );
+  
 
   writeFileSync(
     `${path}/${project}/.gitignore`,
