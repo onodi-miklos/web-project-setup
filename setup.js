@@ -41,7 +41,7 @@ function setup(path, project) {
   },
   "dependencies": {
     "@onodi-miklos/logger": "^1.1.1",
-    "@onodi-miklos/math-utils": "^1.2.2",
+    "@onodi-miklos/math-utils": "^1.2.3",
     "axios": "^1.13.4",
     "bcrypt": "^6.0.0",
     "bootstrap": "^5.3.8",
@@ -83,7 +83,30 @@ log.txt
 .env`
   );
   writeFileSync(
-    `${path}/${project}/backend/src/app.ts`,``
+    `${path}/${project}/backend/src/app.ts`,`
+const express = require('express')
+const path = require('path')
+const logger = require('@onodi-miklos/logger')
+
+const app = express()
+
+app.use(logger([
+  // "console",
+  // "file"
+]))
+
+app.use([
+  express.json(),
+  express.urlencoded({ extended: true }),
+  express.static(path.join(__dirname, "./public"))
+])
+
+
+
+app.all(/.*/, (req, res) => {
+  return res.status(404).json({success: false})
+})
+    `
   );
   writeFileSync(
     `${path}/${project}/backend/tsconfig.json`,
@@ -156,14 +179,7 @@ log.txt
     `
   );
   writeFileSync(
-    `${path}/${project}/backend/frontend/style.css`,
-    `
-:root{}
-body{
-  margin: none;
-  box-sizing: border-box
-}`
-  );
+    `${path}/${project}/backend/frontend/style.css`,``);
   writeFileSync(
     `${path}/${project}/backend/frontend/index.html`,
     `
