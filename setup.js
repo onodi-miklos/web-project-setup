@@ -28,7 +28,8 @@ function setup(path, project) {
     "watch:backend": "tsc --watch -p backend",
     "watch:frontend": "tsc --watch -p backend/frontend",
     "build": "npm run build:backend && npm run build:frontend",
-    "start":"npm run build && node backend/dist/app.js"
+    "start":"npm run build && node backend/dist/app.js",
+    "run": "node backend/dist/app.js"
   },
   "keywords": [],
   "author": "",
