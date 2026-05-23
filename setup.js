@@ -42,7 +42,7 @@ function setup(path, project) {
   },
   "dependencies": {
     "@onodi-miklos/logger": "^1.1.1",
-    "@onodi-miklos/math-utils": "^1.2.5",
+    "@onodi-miklos/math-utils": "^1.2.6",
     "axios": "^1.13.4",
     "bcrypt": "^6.0.0",
     "bootstrap": "^5.3.8",
