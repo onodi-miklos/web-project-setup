@@ -9,9 +9,9 @@ function setup(path, project) {
   mkdirSync(`${path}/${project}/backend/src`, { recursive: true });
   mkdirSync(`${path}/${project}/backend/routes`, { recursive: true });
   mkdirSync(`${path}/${project}/backend/controllers`, { recursive: true });
-  mkdirSync(`${path}/${project}/backend/frontend`, { recursive: true });
-  mkdirSync(`${path}/${project}/backend/frontend/dist`, { recursive: true });
-  mkdirSync(`${path}/${project}/backend/frontend/src`, { recursive: true });
+  mkdirSync(`${path}/${project}/frontend`, { recursive: true });
+  mkdirSync(`${path}/${project}/frontend/dist`, { recursive: true });
+  mkdirSync(`${path}/${project}/frontend/src`, { recursive: true });
 
 
   writeFileSync(
@@ -24,12 +24,12 @@ function setup(path, project) {
   "main": "backend/dist/app.js",
   "scripts": {
     "build:backend": "tsc -p backend",
-    "build:frontend": "tsc -p backend/frontend",
+    "build:frontend": "tsc -p frontend",
     "watch:backend": "tsc --watch -p backend",
-    "watch:frontend": "tsc --watch -p backend/frontend",
+    "watch:frontend": "tsc --watch -p frontend",
     "build": "npm run build:backend && npm run build:frontend",
-    "start":"npm run build && node backend/dist/app.js",
-    "run": "node backend/dist/app.js"
+    "start": "npm run build && node backend/dist/app.js",
+    "nodemon": "npm run build && nodemon backend/dist/app.js"
   },
   "keywords": [],
   "author": "",
@@ -146,7 +146,7 @@ app.all(/.*/, (req, res) => {
 }`
   );
   writeFileSync(
-    `${path}/${project}/backend/frontend/tsconfig.json`,
+    `${path}/${project}/frontend/tsconfig.json`,
     `
 // FRONTEND
 {
@@ -166,7 +166,7 @@ app.all(/.*/, (req, res) => {
     "strict": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noUnusedParameters": true,
 
     "isolatedModules": true,
@@ -180,9 +180,9 @@ app.all(/.*/, (req, res) => {
     `
   );
   writeFileSync(
-    `${path}/${project}/backend/frontend/style.css`,``);
+    `${path}/${project}/frontend/style.css`,``);
   writeFileSync(
-    `${path}/${project}/backend/frontend/index.html`,
+    `${path}/${project}/frontend/index.html`,
     `
 <!DOCTYPE html>
 <html lang="en">
@@ -201,7 +201,7 @@ app.all(/.*/, (req, res) => {
 </body>
 </html>`
   );
-  writeFileSync(`${path}/${project}/backend/frontend/src/index.ts`, ``);
+  writeFileSync(`${path}/${project}/frontend/src/index.ts`, ``);
 }
 
 const readline = require("readline");
